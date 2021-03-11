@@ -1,0 +1,100 @@
+/* CSS Variables */
+:root {
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  /* Colors */
+  --foreground: #fff;
+  --base: var(--foreground);
+  --background: #09151f;
+  --border: var(--foreground);
+
+  --blue: #57b5f9;
+  --yellow: #f8e81c;
+
+  /* Spacing */
+  --space: 4px;
+  --space-1x: 5px;
+  --space-2x: 8px;
+  --space-3x: 10px;
+  --space-4x: 14px;
+  --space-5x: 16px;
+  --space-6x: 25px;
+  --space-8x: 32px;
+  --space-16x: 64px;
+  --space-32x: 128px;
+  --space-small: 32px;
+  --space-medium: 40px;
+  --space-large: 48px;
+  --space-gap: 24px;
+  --space-gap-half: 12px;
+  --space-gap-quarter: var(--space-2x);
+
+  /* font-size */
+  --size-base: 1rem; // 16px
+  --size-xs3: 0.5rem; // 8px
+  --size-xs2: 0.75rem; // 12px
+  --size-xs: 0.875rem; // 14px
+  --size-s: 0.9375rem; // 15px
+  --size-m: var(--size-base); // 16px
+  --size-xl: 1.125rem; // 18px
+  --size-xl2: 1.25rem; // 20px
+  --size-xl3: 1.375rem; // 22px
+  --size-xl4: 1.5rem; // 24px
+  --size-xl5: 1.875rem; // 30px
+  --size-xl6: 2.5rem; // 40px
+  --size-xl7: 3rem; // 48px
+  --size-xl8: 3.5rem; // 56px
+  --size-xl9: 4rem; // 64px
+  --size-xl10: 8rem; // 128px
+
+  /* Gaps between components */
+  --gap: var(--space-gap);
+  --gap-half: var(--space-gap-half);
+  --gap-quarter: var(--space-gap-quarter);
+  --gap-double: var(--space-large);
+
+  /* Values */
+  --weight-normal: 400;
+  --weight-semibold: 500;
+  --weight-bold: 600;
+  --radius: 5px;
+  --radius-half: 2.5px;
+  --z-index-s: 10;
+  --z-index-m: 50;
+  --z-index-l: 100;
+  --z-index-xl: 200;
+  --z-index-xl2: 400;
+  --z-index-xl3: 600;
+  --z-index-xl4: 800;
+  --z-index-super: 9999;
+
+  /* Semantic */
+  --page-margin: var(--space-gap);
+  --page-width-shrink: 603px;
+  --page-width: 1048px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background-color: #fffb79 !important;
+}
+
+/* In order to make position: sticky work */
+body {
+  overflow-x: initial !important;
+}
+
+#__next {
+  overflow-x: initial !important;
+}

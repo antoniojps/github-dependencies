@@ -2,11 +2,7 @@ import React from 'react';
 import { Container } from '@github-graphs/components';
 
 export function Index() {
-  return (
-    <div>
-      <Container>Hello world</Container>
-    </div>
-  );
+  return <Container>Hello world</Container>;
 }
 
 export default Index;
