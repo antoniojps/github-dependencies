@@ -5,7 +5,7 @@ import Components from './components';
 
 describe('Components', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Components />);
+    const { baseElement } = render(<Components content="Hello world!" />);
     expect(baseElement).toBeTruthy();
   });
 });

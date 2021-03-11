@@ -3,12 +3,14 @@ import React from 'react';
 import './components.module.scss';
 
 /* eslint-disable-next-line */
-export interface ComponentsProps {}
+type ComponentsProps = {
+  content: string;
+};
 
 export function Components(props: ComponentsProps) {
   return (
     <div>
-      <h1>Welcome to components!</h1>
+      <h1>{props.content}</h1>
     </div>
   );
 }

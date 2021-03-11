@@ -4,7 +4,7 @@ import { Components } from '@github-graphs/components';
 export function Index() {
   return (
     <div>
-      <Components />
+      <Components content="Hello world" />
     </div>
   );
 }

@@ -12,7 +12,7 @@
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e", "build-storybook"] }
     }
   },
   "projects": { "web": { "tags": [] }, "components": { "tags": [] } }
