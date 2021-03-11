@@ -43,6 +43,40 @@
           "options": { "command": "tsc --p apps/web/tsconfig.json --incremental --noEmit" }
         }
       }
+    },
+    "components": {
+      "root": "libs/components",
+      "sourceRoot": "libs/components/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/components",
+            "tsConfig": "libs/components/tsconfig.lib.json",
+            "project": "libs/components/package.json",
+            "entryFile": "libs/components/src/index.ts",
+            "external": ["react", "react-dom"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [{ "glob": "README.md", "input": ".", "output": "." }]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["libs/components/**/*.{ts,tsx,js,jsx}"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components"],
+          "options": { "jestConfig": "libs/components/jest.config.js", "passWithNoTests": true }
+        },
+        "type-check": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": { "command": "tsc --p apps/web/tsconfig.json --incremental --noEmit" }
+        }
+      }
     }
   }
 }
