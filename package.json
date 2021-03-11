@@ -16,6 +16,7 @@
     "affected:test": "nx affected:test",
     "affected:lint": "nx affected:lint",
     "affected:dep-graph": "nx affected:dep-graph",
+    "affected:type-check": "nx affected --target=type-check",
     "affected": "nx affected",
     "format": "nx format:write",
     "format:write": "nx format:write",
@@ -23,6 +24,7 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
+    "commit": "cz",
     "help": "nx help"
   },
   "private": true,
@@ -71,6 +73,28 @@
     "prettier": "2.2.1",
     "ts-jest": "26.4.0",
     "ts-node": "~9.1.1",
-    "typescript": "~4.0.3"
+    "typescript": "~4.0.3",
+    "husky": "4.3.8",
+    "lint-staged": "^10.5.4",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn affected:type-check && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,css,scss,md,ts,tsx,html,graphql}": [
+      "yarn affected:lint  -- --uncommitted --parallel",
+      "yarn format --uncommitted",
+      "yarn affected:test -- --uncommitted"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }

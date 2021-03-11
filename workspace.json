@@ -66,6 +66,12 @@
           "options": {
             "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
           }
+        },
+        "type-check": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "tsc --p apps/web/tsconfig.json --incremental --noEmit"
+          }
         }
       }
     },
@@ -91,6 +97,12 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/web-e2e/**/*.{js,ts}"]
+          }
+        },
+        "type-check": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "tsc --p apps/web-e2e/tsconfig.json --incremental --noEmit"
           }
         }
       }
