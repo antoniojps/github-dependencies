@@ -1,10 +1,10 @@
 import React from 'react';
-import { Components } from '@github-graphs/components';
+import { Container } from '@github-graphs/components';
 
 export function Index() {
   return (
     <div>
-      <Components content="Hello world" />
+      <Container>Hello world</Container>
     </div>
   );
 }
