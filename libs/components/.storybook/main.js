@@ -8,6 +8,7 @@ rootMain.stories.push(
 
 rootMain.addons.push(
   ...[
+    '@storybook/preset-scss',
     '@storybook/addon-storysource',
     '@storybook/addon-knobs',
     'storybook-addon-react-docgen',
