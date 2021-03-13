@@ -117,7 +117,7 @@
         "type-check": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "command": "tsc --p apps/web/tsconfig.json --incremental --noEmit"
+            "command": "tsc --p libs/components/tsconfig.lib.json --incremental --noEmit"
           }
         },
         "storybook": {
@@ -182,6 +182,12 @@
             "main": "libs/parser-dependencies/src/index.ts",
             "assets": ["libs/parser-dependencies/*.md"]
           }
+        },
+        "type-check": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "tsc --p libs/parser-dependencies/tsconfig.lib.json --incremental --noEmit"
+          }
         }
       }
     },
@@ -213,6 +219,57 @@
             "packageJson": "libs/types/package.json",
             "main": "libs/types/src/index.ts",
             "assets": ["libs/types/*.md"]
+          }
+        },
+        "type-check": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "tsc --p libs/types/tsconfig.lib.json --incremental --noEmit"
+          }
+        }
+      }
+    },
+    "services": {
+      "root": "libs/services",
+      "sourceRoot": "libs/services/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/services/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/services"],
+          "options": {
+            "jestConfig": "libs/services/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/services",
+            "tsConfig": "libs/services/tsconfig.lib.json",
+            "packageJson": "libs/services/package.json",
+            "main": "libs/services/src/index.ts",
+            "assets": ["libs/services/*.md"]
+          }
+        },
+        "type-check": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "tsc --p libs/services/tsconfig.lib.json --incremental --noEmit"
+          }
+        },
+        "generate": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": ["yarn graphql-codegen --config libs/services/src/github/codegen.yml"],
+            "parallel": false
           }
         }
       }

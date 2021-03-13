@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/libs/components',
     '<rootDir>/libs/parser-dependencies',
     '<rootDir>/libs/types',
+    '<rootDir>/libs/services',
   ],
 };

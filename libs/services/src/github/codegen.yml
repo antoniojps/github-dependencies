@@ -1,0 +1,23 @@
+schema: https://api.github.com/graphql
+headers:
+  Authorization: bearer 47d7f92193dde403265e3758285d8ca1bbad1060
+documents: ['libs/services/src/github/*.{tsx,ts}']
+generates:
+  ./libs/services/src/github/index.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+    config:
+      preResolveTypes: true
+      onlyOperationTypes: true
+      useTypeImports: true
+      scalars:
+        Date: string
+        DateTime: string
+        GitSSHRemote: string
+        GitTimestamp: string
+        HTML: string
+        PreciseDateTime: string
+        URI: string
+        X509Certificate: string

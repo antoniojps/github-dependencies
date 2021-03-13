@@ -19,6 +19,7 @@
     "web": { "tags": [] },
     "components": { "tags": [] },
     "parser-dependencies": { "tags": [] },
-    "types": { "tags": [] }
+    "types": { "tags": [] },
+    "services": { "tags": [] }
   }
 }
