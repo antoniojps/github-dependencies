@@ -1,7 +1,7 @@
-import { parsePackageJson, parser } from '../lib/npm-parser';
-import { packageJsonMock, packageJsonMockAlt } from '../___mocks__/npmMocks';
+import { parsePackageJson, parser } from './';
+import { packageJsonMock, packageJsonMockAlt } from '../../___mocks__/npmMocks';
 
-describe('npm-parser', () => {
+describe('npm', () => {
   describe('parsePackageJson', () => {
     it('should return dependencies array', () => {
       expect(parsePackageJson(packageJsonMock)).toEqual([

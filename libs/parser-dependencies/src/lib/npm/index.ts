@@ -1,10 +1,10 @@
 import Ajv from 'ajv';
 import { PackageJson } from '@github-graphs/types';
 import { flatten } from 'lodash';
-import schema from './schema.json';
+import packageJsonSchema from './package-json-schema.json';
 
 const ajv = new Ajv();
-const validate = ajv.compile(schema);
+const validate = ajv.compile(packageJsonSchema);
 
 /** Parses all dependencies names from package json */
 export function parsePackageJson(packageJson: PackageJson) {
