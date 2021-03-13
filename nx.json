@@ -15,5 +15,10 @@
       "options": { "cacheableOperations": ["build", "lint", "test", "e2e", "build-storybook"] }
     }
   },
-  "projects": { "web": { "tags": [] }, "components": { "tags": [] } }
+  "projects": {
+    "web": { "tags": [] },
+    "components": { "tags": [] },
+    "parser-dependencies": { "tags": [] },
+    "types": { "tags": [] }
+  }
 }

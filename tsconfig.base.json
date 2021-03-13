@@ -17,7 +17,9 @@
     "paths": {
       "@github-graphs/components": ["libs/components/src/index.ts"],
       "@github-graphs/components*": ["libs/components/src/lib/components*"],
-      "@github-graphs/components/containers*": ["libs/components/src/lib/containers*"]
+      "@github-graphs/components/containers*": ["libs/components/src/lib/containers*"],
+      "@github-graphs/parser-dependencies": ["libs/parser-dependencies/src/index.ts"],
+      "@github-graphs/types": ["libs/types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

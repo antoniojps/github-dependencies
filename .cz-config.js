@@ -29,8 +29,8 @@ module.exports = {
   scopes: [
     { name: 'web', description: 'anything apps/web specific' },
     { name: 'components', description: 'anything packages/components specific' },
+    { name: 'parser-dependencies', description: 'anything packages/parser-dependencies specific' },
     { name: 'types', description: 'anything packages/types specific' },
-    { name: 'utils', description: 'anything packages/utils specific' },
     { name: 'services', description: 'anything packages/services specific' },
     { name: 'lib', description: 'anything related to libs' },
     {

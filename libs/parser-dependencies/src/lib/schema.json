@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://json-schema.org/draft-04/schema#",
+  "title": "JSON schema for NPM package.json files",
+  "definitions": {
+    "dependency": {
+      "description": "Dependencies are specified with a simple hash of package name to version range. The version range is a string which has one or more space-separated descriptors. Dependencies can also be identified with a tarball or git URL.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "type": "object",
+  "patternProperties": {
+    "^_": {
+      "description": "Any property starting with _ is valid.",
+      "tsType": "any"
+    }
+  },
+  "properties": {
+    "dependencies": {
+      "$ref": "#/definitions/dependency"
+    },
+    "devDependencies": {
+      "$ref": "#/definitions/dependency"
+    },
+    "optionalDependencies": {
+      "$ref": "#/definitions/dependency"
+    },
+    "peerDependencies": {
+      "$ref": "#/definitions/dependency"
+    },
+    "workspaces": {
+      "description": "Allows packages within a directory to depend on one another using direct linking of local files. Additionally, dependencies within a workspace are hoisted to the workspace root when possible to reduce duplication. Note: It's also a good idea to set \"private\" to true when using this feature.",
+      "anyOf": [
+        {
+          "type": "array",
+          "description": "Workspace package paths. Glob patterns are supported.",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "packages": {
+              "type": "array",
+              "description": "Workspace package paths. Glob patterns are supported.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nohoist": {
+              "type": "array",
+              "description": "Packages to block from hoisting to the workspace root. Currently only supported in Yarn only.",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "anyOf": [
+    {
+      "type": "object",
+      "not": {
+        "required": ["bundledDependencies", "bundleDependencies"]
+      }
+    },
+    {
+      "type": "object",
+      "not": {
+        "required": ["bundleDependencies"]
+      },
+      "required": ["bundledDependencies"]
+    },
+    {
+      "type": "object",
+      "not": {
+        "required": ["bundledDependencies"]
+      },
+      "required": ["bundleDependencies"]
+    }
+  ]
+}
