@@ -41,3 +41,16 @@ export const packageJsonMockAlt: PackageJson = {
     'peer-dependency-alt': '1.0.0',
   },
 };
+
+export const packageJsonMockThirdAlt: PackageJson = {
+  name: 'mock-alt',
+  version: '0.0.0',
+  license: 'MIT',
+  scripts: {
+    build: 'npm build',
+  },
+  private: true,
+  dependencies: {
+    react: '17.0.1',
+  },
+};
