@@ -1,14 +1,28 @@
 import { NextApiResponse } from 'next';
+import { AxiosError } from 'axios';
 import { getReasonPhrase, StatusCodes } from 'http-status-codes';
 
-export const sendError = (res: NextApiResponse, code: number | StatusCodes, message?: string) => {
-  res.status(code);
+export const sendError = (
+  res: NextApiResponse,
+  code: number | StatusCodes,
+  error?: AxiosError & Error
+) => {
+  let statusCode = code;
+
+  // use axios response status when axios error
+  if (error?.isAxiosError) {
+    if (error?.response) {
+      statusCode = error.response.status;
+    }
+  }
+
+  res.status(statusCode);
   res.json({
-    status: code,
+    status: statusCode,
     message:
       process.env.NODE_ENV === 'production'
-        ? getReasonPhrase(code)
-        : message || getReasonPhrase(code),
+        ? getReasonPhrase(statusCode)
+        : error.message || getReasonPhrase(statusCode),
   });
   res.end();
 };
