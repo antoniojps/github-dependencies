@@ -22,7 +22,7 @@ export const sendError = (
     message:
       process.env.NODE_ENV === 'production'
         ? getReasonPhrase(statusCode)
-        : error.message || getReasonPhrase(statusCode),
+        : error?.message || getReasonPhrase(statusCode),
   });
   res.end();
 };

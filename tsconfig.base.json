@@ -18,6 +18,7 @@
       "@github-graphs/components": ["libs/components/src/index.ts"],
       "@github-graphs/components*": ["libs/components/src/lib/components*"],
       "@github-graphs/components/containers*": ["libs/components/src/lib/containers*"],
+      "@github-graphs/parser-dependencies": ["libs/parser-dependencies/src/lib/index.ts"],
       "@github-graphs/parser-dependencies*": ["libs/parser-dependencies/src/lib*"],
       "@github-graphs/types": ["libs/types/src/index.ts"],
       "@github-graphs/services*": ["libs/services/src*"]

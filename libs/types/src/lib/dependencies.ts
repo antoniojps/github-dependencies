@@ -43,3 +43,14 @@ export type DependenciesFilesPerPackageManager = {
   packageManager: PackageManager;
   files: unknown[];
 }[];
+
+export type ParserParams = {
+  reposContents: GithubContents[];
+  fetchFile: FetchFile;
+  packageManagersMap?: Parser[];
+};
+
+export type ParserResult = {
+  packageManager: PackageManager;
+  data: DependenciesData;
+}[];

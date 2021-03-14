@@ -1,10 +1,10 @@
 import {
   Parser,
-  GithubContents,
-  FetchFile,
   FetchFileResult,
   DependenciesFileMap,
   DependenciesFilesPerPackageManager,
+  ParserParams,
+  ParserResult,
 } from '@github-graphs/types';
 import { parser as npmParser } from './npm';
 import { parser as composerParser } from './composer';
@@ -23,17 +23,11 @@ export const defaultPackageManagersMap: Parser[] = [
   },
 ];
 
-type ParserParams = {
-  reposContents: GithubContents[];
-  fetchFile: FetchFile;
-  packageManagersMap?: Parser[];
-};
-
 export const parser = async ({
   reposContents,
   fetchFile,
   packageManagersMap = defaultPackageManagersMap,
-}: ParserParams) => {
+}: ParserParams): Promise<ParserResult> => {
   // find dependencies files from repo contents
   const dependenciesFilesMap: DependenciesFileMap = flatten(
     packageManagersMap.map((parser) => {
