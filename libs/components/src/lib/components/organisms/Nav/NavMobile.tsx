@@ -25,11 +25,14 @@ const NavMobile = (): ReactElement => {
     <nav className={styles.nav} ref={mobileNav}>
       <div className={styles.header}>
         <div className={styles.start}>
-          <Link href="/">
-            <a className={styles.logo}>
-              <Logo />
-            </a>
-          </Link>
+          <a
+            href="https://antoniosantos.me"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.logo}
+          >
+            <Logo />
+          </a>
         </div>
         <div className={styles.end}>
           <Hamburger

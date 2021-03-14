@@ -13,11 +13,14 @@ const NavDesktop = ({ links = [] }: NavProps): ReactElement => {
     <nav className={styles.nav}>
       <div className={styles.inner}>
         <div className={styles.start}>
-          <Link href="/">
-            <a className={styles.logo}>
-              <Logo />
-            </a>
-          </Link>
+          <a
+            href="https://antoniosantos.me"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.logo}
+          >
+            <Logo />
+          </a>
           <AnimatePresence exitBeforeEnter initial={false}>
             {y < 100 && (
               <motion.div
