@@ -76,7 +76,7 @@ export const parser = async ({
     []
   );
 
-  // parsed dependencies occurrence per package manager with null values (dirty)
+  // parsed dependencies occurrence per package manager
   const parsedDependencies = dependenciesFilesPerPackageManager.map((dependencies) => {
     const { packageManager, files } = dependencies;
 
