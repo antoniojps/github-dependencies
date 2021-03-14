@@ -1,0 +1,16 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-xl);
+
+  &Desktop {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  &Mobile {
+    @media (min-width: 769px) {
+      display: none;
+    }
+  }
+}

@@ -6,6 +6,7 @@
   /* Colors */
   --foreground: #fff;
   --base: var(--foreground);
+  --light: rgba(255, 255, 255, 0.8);
   --background: #09151f;
   --border: var(--foreground);
 
@@ -41,7 +42,7 @@
   --size-xl2: 1.25rem; // 20px
   --size-xl3: 1.375rem; // 22px
   --size-xl4: 1.5rem; // 24px
-  --size-xl5: 1.875rem; // 30px
+  --size-xl5: 2.25rem; // 36px
   --size-xl6: 2.5rem; // 40px
   --size-xl7: 3rem; // 48px
   --size-xl8: 3.5rem; // 56px
@@ -57,7 +58,7 @@
   /* Values */
   --weight-normal: 400;
   --weight-semibold: 500;
-  --weight-bold: 600;
+  --weight-bold: bold;
   --radius: 5px;
   --radius-half: 2.5px;
   --z-index-s: 10;
@@ -73,6 +74,9 @@
   --page-margin: var(--space-gap);
   --page-width-shrink: 603px;
   --page-width: 1048px;
+  --nav-width: 1070px;
+  --nav-height: 64px;
+  --nav-border-bottom: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
 html,
@@ -97,4 +101,8 @@ body {
 
 #__next {
   overflow-x: initial !important;
+}
+
+.hamburger-react > div {
+  height: 1px !important;
 }
