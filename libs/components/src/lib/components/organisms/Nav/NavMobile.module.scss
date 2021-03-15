@@ -8,10 +8,11 @@
 
   a {
     cursor: pointer;
-    padding: var(--space-gap-half);
-    color: var(--light) !important;
+    color: var(--light);
     font-size: var(--size-xs);
     transition: color 0.2s ease 0s;
+    display: flex;
+    justify-content: center;
   }
 
   a:hover {
@@ -53,8 +54,28 @@
     position: relative;
   }
   &Inner {
-    padding: var(--gap);
+    padding: var(--space-gap);
+    a {
+      margin-top: var(--space-gap-quarter);
+      border: 1px solid transparent;
+      padding: var(--space-gap-half);
+      &:first-of-type {
+        margin-top: var(--space-gap);
+      }
+    }
+
+    button {
+      width: 100% !important;
+      text-transform: lowercase !important;
+    }
   }
+}
+
+.navLinkActive {
+  border: 1px solid var(--foreground) !important;
+  border-radius: var(--radius);
+  color: var(--base) !important;
+  font-weight: var(--weight-bold);
 }
 
 .logo {

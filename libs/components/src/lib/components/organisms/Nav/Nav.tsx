@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react';
+import { User } from 'next-auth';
 import NavDesktop from './NavDesktop';
 import NavMobile from './NavMobile';
 import styles from './Nav.module.scss';
+import { signOut, signIn } from 'next-auth/client';
 
 type NavLinkProps = {
   label: string;
@@ -10,6 +12,9 @@ type NavLinkProps = {
 
 export type NavProps = {
   links?: NavLinkProps[];
+  user?: User;
+  handleSignIn?: typeof signIn;
+  handleSignOut?: typeof signOut;
 };
 
 export const Nav = (props: NavProps): ReactElement => {
@@ -19,7 +24,7 @@ export const Nav = (props: NavProps): ReactElement => {
         <NavDesktop {...props} />
       </div>
       <div className={styles.navMobile}>
-        <NavMobile />
+        <NavMobile {...props} />
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
-import Link from 'next/link';
 import { useWindowScroll } from 'react-use';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavProps } from './Nav';
 import { Logo, LinkActive } from './../../atoms';
+import { User } from './../../molecules';
 import styles from './NavDesktop.module.scss';
 
-const NavDesktop = ({ links = [] }: NavProps): ReactElement => {
+const NavDesktop = ({ links = [], user }: NavProps): ReactElement => {
   const { y } = useWindowScroll();
 
   return (
@@ -45,7 +45,22 @@ const NavDesktop = ({ links = [] }: NavProps): ReactElement => {
             )}
           </AnimatePresence>
         </div>
-        <div className={styles.end}>user</div>
+        <div className={styles.end}>
+          <AnimatePresence exitBeforeEnter initial={false}>
+            {Boolean(user) && (
+              <motion.div
+                style={{ display: 'flex', alignItems: 'center' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                key="nav-user"
+              >
+                <User name={user?.name} image={user?.image} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </nav>
   );
