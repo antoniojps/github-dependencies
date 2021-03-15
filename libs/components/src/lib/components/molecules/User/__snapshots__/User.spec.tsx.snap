@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User renders 1`] = `
+<DocumentFragment>
+  <span
+    class="user"
+  >
+    <span
+      class="userName"
+    >
+      Antonio
+    </span>
+    <span
+      class="jsx-134754294 avatar "
+    >
+      <span
+        class="jsx-134754294 avatar-text"
+      >
+        A
+      </span>
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`User renders with image 1`] = `
+<DocumentFragment>
+  <span
+    class="user"
+  >
+    <span
+      class="userName"
+    >
+      Antonio
+    </span>
+    <span
+      class="jsx-134754294 avatar "
+    >
+      <img
+        class="jsx-134754294 avatar-img"
+        src="https://react.geist-ui.dev/images/avatar.png"
+      />
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`User renders with image, reverse and large 1`] = `
+<DocumentFragment>
+  <span
+    class="user"
+  >
+    <span
+      class="userName userLarge"
+    >
+      Antonio
+    </span>
+    <span
+      class="jsx-134754294 avatar "
+    >
+      <img
+        class="jsx-134754294 avatar-img"
+        src="https://react.geist-ui.dev/images/avatar.png"
+      />
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`User renders with name reverse 1`] = `
+<DocumentFragment>
+  <span
+    class="user userReverse"
+  >
+    <span
+      class="userName"
+    >
+      Antonio
+    </span>
+    <span
+      class="jsx-134754294 avatar "
+    >
+      <span
+        class="jsx-134754294 avatar-text"
+      >
+        A
+      </span>
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`User renders with size large 1`] = `
+<DocumentFragment>
+  <span
+    class="user"
+  >
+    <span
+      class="userName userLarge"
+    >
+      Antonio
+    </span>
+    <span
+      class="jsx-134754294 avatar "
+    >
+      <span
+        class="jsx-134754294 avatar-text"
+      >
+        A
+      </span>
+    </span>
+  </span>
+</DocumentFragment>
+`;

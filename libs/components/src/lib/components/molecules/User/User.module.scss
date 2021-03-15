@@ -1,0 +1,26 @@
+.user {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+
+  &Name {
+    font-size: var(--size-xs);
+    font-weight: var(--weight-bold);
+    margin-right: var(--space-3x);
+  }
+
+  &Large {
+    font-size: var(--size-xl4);
+    word-break: break-all;
+  }
+
+  &Reverse {
+    direction: rtl;
+    text-align: left;
+
+    & span {
+      margin-right: 0;
+      margin-left: var(--space-3x);
+    }
+  }
+}
