@@ -7,7 +7,7 @@ const ajv = new Ajv();
 const validate = ajv.compile(packageJsonSchema);
 
 /** Parses all dependencies names from package json */
-export function parsePackageJson(packageJson: PackageJson) {
+export function parsePackageJson(packageJson: PackageJson): string[] {
   if (!validate(packageJson)) {
     throw new Error('invalid package json schema');
     return [];

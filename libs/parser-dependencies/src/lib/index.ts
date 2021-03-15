@@ -50,7 +50,6 @@ export const parser = async ({
   const fetchDependenciesFiles = dependenciesFilesMap.map((file) =>
     fetchFile(file.url, file.packageManager)
   );
-
   const settledResults = await Promise.allSettled(fetchDependenciesFiles);
   const dependenciesFiles: FetchFileResult[] = settledResults.reduce((acc, result) => {
     if (result.status === 'fulfilled' && result.value) return [...acc, result.value];

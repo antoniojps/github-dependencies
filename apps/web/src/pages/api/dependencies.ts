@@ -38,7 +38,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return acc;
     }, []);
 
-    // parse dependencies usage per package json of all repositories
+    // parse dependencies usage per package manager of all repos
     const parsed = await parser({
       reposContents,
       fetchFile: fetchFile(accessToken),
