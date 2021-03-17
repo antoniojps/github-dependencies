@@ -1,1 +1,1 @@
-// templates exports
+export * from './Dependencies/Dependencies';

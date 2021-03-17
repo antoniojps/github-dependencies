@@ -1,0 +1,20 @@
+.container {
+  margin-top: var(--space-22x);
+
+  @media (max-width: 768px) {
+    margin-top: var(--space-8x);
+    text-align: left;
+  }
+
+  button {
+    font-weight: var(--weight-semibold) !important;
+  }
+}
+
+.main {
+  padding-top: var(--space-22x);
+
+  @media (max-width: 768px) {
+    padding-top: var(--space-8x);
+  }
+}

@@ -24,6 +24,7 @@
   --space-6x: 25px;
   --space-8x: 32px;
   --space-16x: 64px;
+  --space-22x: 90px;
   --space-32x: 128px;
   --space-small: 32px;
   --space-medium: 40px;
@@ -106,4 +107,8 @@ body {
 
 .hamburger-react > div {
   height: 1px !important;
+}
+
+h1 {
+  font-size: var(--size-xl5) !important;
 }
