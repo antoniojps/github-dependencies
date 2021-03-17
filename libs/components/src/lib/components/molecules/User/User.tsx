@@ -10,6 +10,7 @@ export type Props = {
   hasName?: boolean;
   isReverse?: boolean;
   size?: 'large';
+  className?: string;
 };
 
 export const User = ({
@@ -18,6 +19,7 @@ export const User = ({
   hasName = true,
   isReverse = false,
   size,
+  className = '',
 }: Props): ReactElement => {
   const [firstLetter] = name.split('');
 
@@ -25,6 +27,7 @@ export const User = ({
     <span
       className={classNames(styles.user, {
         [styles.userReverse]: isReverse,
+        [className]: Boolean(className),
       })}
     >
       {hasName && (

@@ -1,0 +1,36 @@
+.content {
+  padding: var(--space-2x) 0;
+  display: flex;
+  flex-direction: column;
+
+  button {
+    background: none;
+    color: var(--base-inverse);
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    text-transform: lowercase;
+    border-radius: 0;
+    padding: var(--space-2x) var(--space-5x);
+    font-size: var(--size-xs);
+    opacity: 0.8;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover,
+    :active {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    &:focus {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+}
+
+.user {
+  cursor: pointer;
+}

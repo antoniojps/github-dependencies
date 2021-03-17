@@ -3,10 +3,10 @@ import { useWindowScroll } from 'react-use';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavProps } from './Nav';
 import { Logo, LinkActive } from './../../atoms';
-import { User } from './../../molecules';
+import { UserPopover } from './../../molecules';
 import styles from './NavDesktop.module.scss';
 
-const NavDesktop = ({ links = [], user }: NavProps): ReactElement => {
+const NavDesktop = ({ links = [], user, handleSignOut }: NavProps): ReactElement => {
   const { y } = useWindowScroll();
 
   return (
@@ -56,7 +56,10 @@ const NavDesktop = ({ links = [], user }: NavProps): ReactElement => {
                 transition={{ duration: 0.2 }}
                 key="nav-user"
               >
-                <User name={user?.name} image={user?.image} />
+                <UserPopover
+                  user={{ name: user?.name, image: user?.image }}
+                  handleSignOut={handleSignOut}
+                />
               </motion.div>
             )}
           </AnimatePresence>

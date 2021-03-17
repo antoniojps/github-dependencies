@@ -17,3 +17,9 @@ const links = [
 ];
 
 export const Public = (): ReactElement => <Nav links={links} />;
+export const WithUser = (): ReactElement => (
+  <Nav
+    links={links}
+    user={{ image: 'https://react.geist-ui.dev/images/avatar.png', name: 'Joe', size: 'large' }}
+  />
+);

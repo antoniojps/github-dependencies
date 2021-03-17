@@ -35,7 +35,7 @@ export const Popover = ({ children, content, onChangeOpen, positions, align, ...
         backgroundColor: 'var(--foreground)',
         borderRadius: 'var(--radius)',
         color: 'var(--base-inverse)',
-        zIndex: 'var(--z-index-m)',
+        zIndex: 'var(--z-index-xl2)',
       }}
       {...rest}
     >
