@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover renders 1`] = `
+<DocumentFragment>
+  <div
+    class="children"
+  >
+    <p>
+      click
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Popover renders open 1`] = `
+<DocumentFragment>
+  <div
+    class="children"
+  >
+    <p>
+      click
+    </p>
+  </div>
+</DocumentFragment>
+`;
