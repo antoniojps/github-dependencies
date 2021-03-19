@@ -1,5 +1,5 @@
 .chart {
-  max-width: 523px;
+  width: 100%;
 
   p {
     width: 100%;
@@ -8,5 +8,29 @@
     margin: var(--space) 0;
     transform: translateY(10px);
     font-weight: var(--weight-semibold);
+  }
+}
+
+.editor {
+  padding: var(--space-5x);
+  border: 4px solid var(--foreground);
+  border-radius: var(--radius);
+}
+
+.knobs {
+  display: flex;
+  align-items: center;
+  padding-bottom: var(--space-5x);
+}
+
+.knob {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+
+  div {
+    display: flex;
+    align-items: center;
   }
 }
