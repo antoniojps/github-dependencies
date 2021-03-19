@@ -1,0 +1,16 @@
+.picker {
+  height: 36px;
+  width: 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--background);
+  cursor: pointer;
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.small {
+  height: 18px;
+  width: 18px;
+}
