@@ -2,17 +2,12 @@ import React from 'react';
 import styles from './ChartBarDependencies.module.scss';
 import { ResponsiveBar, BarItemProps } from '@nivo/bar';
 import { getOrdinalColorScale } from '@nivo/colors';
-
-type DataItem = {
-  value: number;
-  label: string;
-};
-
-type Props = {
-  data: DataItem[];
-};
+import { ChartBarDependenciesProps } from '@github-graphs/types';
+import { readableColor, transparentize } from 'polished';
 
 const BarComponent = (props: BarItemProps) => {
+  const textColor = readableColor(props.color);
+
   return (
     <g transform={`translate(${props.x},${props.y})`}>
       <rect x={-3} y={7} width={props.width} height={props.height} fill="rgba(0, 0, 0, .07)" />
@@ -29,7 +24,7 @@ const BarComponent = (props: BarItemProps) => {
         y={props.height / 2}
         textAnchor="end"
         dominantBaseline="central"
-        fill="black"
+        fill={textColor}
         style={{
           fontWeight: 'bold',
           fontSize: 14,
@@ -43,7 +38,7 @@ const BarComponent = (props: BarItemProps) => {
         y={props.height / 2}
         textAnchor="start"
         dominantBaseline="central"
-        fill="rgba(0,0,0,0.5)"
+        fill={transparentize(0.5, textColor)}
         style={{
           fontWeight: 'bold',
           fontSize: 14,
@@ -56,7 +51,12 @@ const BarComponent = (props: BarItemProps) => {
   );
 };
 
-export const ChartBarDependencies = ({ data = [] }: Props) => {
+export const ChartBarDependencies = ({
+  data = [],
+  colorScheme = 'set3',
+  gridColor = 'rgba(255,255,255,0.2)',
+  enableGrid = true,
+}: ChartBarDependenciesProps) => {
   return (
     <div className={styles.wrapper} style={{ height: `${data.length * 64}px` }}>
       <ResponsiveBar
@@ -65,8 +65,8 @@ export const ChartBarDependencies = ({ data = [] }: Props) => {
         data={data}
         indexBy="label"
         valueScale={{ type: 'symlog' }}
-        colors={getOrdinalColorScale({ scheme: 'set3' }, 'index')}
-        enableGridX
+        colors={getOrdinalColorScale({ scheme: colorScheme }, 'index')}
+        enableGridX={enableGrid}
         enableGridY={false}
         axisTop={{
           format: '~s',
@@ -89,13 +89,13 @@ export const ChartBarDependencies = ({ data = [] }: Props) => {
                 stroke: 'transparent',
               },
               text: {
-                fill: 'rgba(255,255,255,0.2)',
+                fill: enableGrid ? gridColor : 'transparent',
               },
             },
           },
           grid: {
             line: {
-              stroke: 'rgba(255, 255, 255, 0.2)',
+              stroke: gridColor,
               strokeWidth: 1,
               strokeDasharray: '4 4',
             },

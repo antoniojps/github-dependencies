@@ -1,3 +1,5 @@
+import { ColorSchemeId } from '@nivo/colors';
+
 export type DependenciesDataItem = {
   label: string;
   value: number;
@@ -54,3 +56,10 @@ export type ParserResult = {
   packageManager: PackageManager;
   data: DependenciesData;
 }[];
+
+export type ChartBarDependenciesProps = {
+  data: DependenciesData;
+  colorScheme: ColorSchemeId;
+  gridColor?: string;
+  enableGrid?: boolean;
+};

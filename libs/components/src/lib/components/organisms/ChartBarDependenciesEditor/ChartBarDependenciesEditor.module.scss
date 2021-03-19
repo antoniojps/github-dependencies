@@ -1,0 +1,12 @@
+.chart {
+  max-width: 523px;
+
+  p {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: var(--space) 0;
+    transform: translateY(10px);
+    font-weight: var(--weight-semibold);
+  }
+}
