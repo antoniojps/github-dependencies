@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { ChartBarDependencies, ColorPicker } from '../../molecules';
 import { ChartTitle } from '../../atoms';
-import { ChartBarDependenciesProps } from '@github-graphs/types';
+import { DependenciesData } from '@github-graphs/types';
 import styles from './ChartBarDependenciesEditor.module.scss';
 import { readableColor } from 'polished';
 import { Select, Toggle, Text, Spacer } from '@geist-ui/react';
 import { themes } from './CharBarDependenciesEditor.data';
 import { ColorSchemeId } from '@nivo/colors';
 
-type ChartBarDependenciesEditorProps = ChartBarDependenciesProps;
+type ChartBarDependenciesEditorProps = { data: DependenciesData };
 
-export const ChartBarDependenciesEditor = (props: ChartBarDependenciesEditorProps) => {
+export const ChartBarDependenciesEditor = ({ data = [] }: ChartBarDependenciesEditorProps) => {
   const [colorScheme, setColorScheme] = useState<ColorSchemeId>('set3');
   const [enableGrid, setEnableGrid] = useState(true);
   const [backgroundColor, setBackgroundColor] = useState('rgb(0,0,0)');
@@ -53,11 +53,11 @@ export const ChartBarDependenciesEditor = (props: ChartBarDependenciesEditorProp
       <div style={{ backgroundColor }} className={styles.chart}>
         <ChartTitle
           username="antoniojps"
-          chart="dependencies usage graph"
+          chart="top 10 used dependencies"
           color={readableColor(backgroundColor)}
         />
         <ChartBarDependencies
-          {...props}
+          data={data}
           colorScheme={colorScheme}
           enableGrid={enableGrid}
           gridColor={gridColor}

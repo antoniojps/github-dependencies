@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Layout } from '../../organisms';
+import { Layout, ChartBarDependenciesEditor } from '../../organisms';
 import { Container, Github } from '../../atoms';
 import { User } from 'next-auth';
 import { Text, Button, Spacer } from '@geist-ui/react';
@@ -13,6 +13,19 @@ type Props = {
   handleSignOut: typeof signOut;
   handleSignIn: typeof signIn;
 };
+
+const data = [
+  { label: 'mongoose', value: 2 },
+  { label: 'query-string', value: 4 },
+  { label: 'prop-types', value: 8 },
+  { label: 'dotenv', value: 9 },
+  { label: 'husky', value: 9 },
+  { label: 'typescript', value: 10 },
+  { label: 'graphql', value: 10 },
+  { label: 'axios', value: 10 },
+  { label: 'eslint', value: 13 },
+  { label: 'react', value: 16 },
+];
 
 export const Dependencies = ({
   user,
@@ -29,7 +42,7 @@ export const Dependencies = ({
         transition={{ duration: 0.2 }}
         key="dependencies-graph"
       >
-        <Text>Hello graph</Text>
+        <ChartBarDependenciesEditor data={data} />
       </motion.div>
     ) : (
       <motion.div
