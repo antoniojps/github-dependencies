@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorPicker renders 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="children"
+    >
+      <div
+        class="picker"
+        role="button"
+        style="background-color: yellow;"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ColorPicker renders small 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="children"
+    >
+      <div
+        class="picker small"
+        role="button"
+        style="background-color: yellow;"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

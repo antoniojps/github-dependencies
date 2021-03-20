@@ -10,7 +10,7 @@ type ColorPickerProps = {
   /* Selected color  */
   color: string;
   size?: 'medium' | 'small';
-  onChangeColor: (color: string) => void;
+  onChangeColor?: (color: string) => void;
 };
 
 function parseToRGBColor(color: string) {
