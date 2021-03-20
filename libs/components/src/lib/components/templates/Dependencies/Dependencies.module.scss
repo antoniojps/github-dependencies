@@ -12,9 +12,5 @@
 }
 
 .main {
-  padding: var(--space-22x) 0;
-
-  @media (max-width: 768px) {
-    padding: var(--space-8x) 0;
-  }
+  padding: var(--space-8x) 0;
 }
