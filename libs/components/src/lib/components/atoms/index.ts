@@ -4,3 +4,4 @@ export * from './Logo/Logo';
 export * from './Icons';
 export * from './ChartTitle/ChartTitle';
 export * from './ColorsTheme/ColorsTheme';
+export * from './Breather/Breather';
