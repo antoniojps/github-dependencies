@@ -29,6 +29,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // fetch repositories user contributed in last year
     const client = new GraphQLClient('https://api.github.com/graphql');
     const repositories = await getRepositoriesFromLastYear(client, accessToken);
+    if (repositories.length === 0) sendError(res, 404);
 
     // fetch repositories files (contents)
     const getContentsPromises = repositories.map((repo) => getContents(repo, accessToken));
