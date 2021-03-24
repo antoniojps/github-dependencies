@@ -1,17 +1,18 @@
 import React from 'react';
-import { Dependencies } from '@github-graphs/components';
+import { Dependencies, Layout } from '@github-graphs/components';
 import { useSession, signOut, signIn } from 'next-auth/client';
 
 export function Index() {
   const [session, loading] = useSession();
-
   return (
-    <Dependencies
-      user={session?.user}
-      isLoadingUser={loading}
-      handleSignIn={signIn}
-      handleSignOut={signOut}
-    />
+    <Layout nav={{ user: session?.user, handleSignOut: signOut, handleSignIn: signIn }}>
+      <Dependencies
+        user={session?.user}
+        isLoadingUser={loading}
+        handleSignIn={signIn}
+        isLoading={false}
+      />
+    </Layout>
   );
 }
 

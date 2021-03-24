@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ChartBarDependencies, ColorPicker } from '../../molecules';
-import { ChartTitle } from '../../atoms';
+import { ChartTitle, ColorsTheme } from '../../atoms';
 import { DependenciesData } from '@github-graphs/types';
 import styles from './ChartBarDependenciesEditor.module.scss';
 import { readableColor } from 'polished';
 import { Select, Toggle, Text, Spacer } from '@geist-ui/react';
 import { themes } from './CharBarDependenciesEditor.data';
-import { ColorSchemeId } from '@nivo/colors';
+import { useChartDependenciesEditor } from './useChartDependenciesEditor';
+import { ColorSchemeId, colorSchemes } from '@nivo/colors';
 
-type ChartBarDependenciesEditorProps = { data: DependenciesData };
+type ChartBarDependenciesEditorProps = { data: DependenciesData; isLoading: boolean };
 
-export const ChartBarDependenciesEditor = ({ data = [] }: ChartBarDependenciesEditorProps) => {
-  const [colorScheme, setColorScheme] = useState<ColorSchemeId>('set3');
-  const [enableGrid, setEnableGrid] = useState(true);
-  const [backgroundColor, setBackgroundColor] = useState('rgb(0,0,0)');
-  const [gridColor, setGridColor] = useState('rgba(255,255,255,0.2)');
+export const ChartBarDependenciesEditor = ({
+  data = [],
+  isLoading = false,
+}: ChartBarDependenciesEditorProps) => {
+  const [
+    { colorScheme, enableGrid, backgroundColor, gridColor },
+    { setColorScheme, setEnableGrid, setBackgroundColor, setGridColor },
+  ] = useChartDependenciesEditor();
+
+  if (isLoading) return <div className={styles.editor}>We are loading...</div>;
 
   return (
     <div className={styles.editor}>
@@ -31,7 +37,9 @@ export const ChartBarDependenciesEditor = ({ data = [] }: ChartBarDependenciesEd
           onChange={(value: ColorSchemeId) => setColorScheme(value)}
         >
           {Object.keys(themes).map((theme) => (
-            <Select.Option value={theme}>{theme}</Select.Option>
+            <Select.Option value={theme}>
+              <ColorsTheme colors={colorSchemes[theme]} />
+            </Select.Option>
           ))}
         </Select>
         <Spacer x={0.5} inline />

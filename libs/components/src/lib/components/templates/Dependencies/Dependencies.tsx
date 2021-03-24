@@ -1,16 +1,16 @@
 import React, { ReactElement } from 'react';
-import { Layout, ChartBarDependenciesEditor } from '../../organisms';
+import { ChartBarDependenciesEditor } from '../../organisms';
 import { Container, Github } from '../../atoms';
 import { User } from 'next-auth';
 import { Text, Button, Spacer } from '@geist-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Dependencies.module.scss';
-import { signOut, signIn } from 'next-auth/client';
+import { signIn } from 'next-auth/client';
 
 type Props = {
   user?: User;
   isLoadingUser: boolean;
-  handleSignOut: typeof signOut;
+  isLoading: boolean;
   handleSignIn: typeof signIn;
 };
 
@@ -29,9 +29,9 @@ const data = [
 
 export const Dependencies = ({
   user,
-  handleSignOut,
   handleSignIn,
   isLoadingUser,
+  isLoading,
 }: Props): ReactElement => {
   const renderContent = () =>
     user ? (
@@ -42,7 +42,7 @@ export const Dependencies = ({
         transition={{ duration: 0.2 }}
         key="dependencies-graph"
       >
-        <ChartBarDependenciesEditor data={data} />
+        <ChartBarDependenciesEditor data={data} isLoading={isLoading} />
       </motion.div>
     ) : (
       <motion.div
@@ -61,23 +61,21 @@ export const Dependencies = ({
     );
 
   return (
-    <Layout nav={{ user, handleSignOut, handleSignIn }}>
-      <Container className={styles.container} shrink center>
-        <Text h1>Github dependency usage graph</Text>
-        <Text p>
-          Understand what dependencies you use the most on your github projects
-          <br />
-          <Text type="secondary" span small>
-            supports npm for javascript and composer for php
-          </Text>
+    <Container className={styles.container} shrink center>
+      <Text h1>Github dependency usage graph</Text>
+      <Text p>
+        Understand what dependencies you use the most on your github projects
+        <br />
+        <Text type="secondary" span small>
+          supports npm for javascript and composer for php
         </Text>
+      </Text>
 
-        <div className={styles.main}>
-          <AnimatePresence exitBeforeEnter initial={true}>
-            {!isLoadingUser && renderContent()}
-          </AnimatePresence>
-        </div>
-      </Container>
-    </Layout>
+      <div className={styles.main}>
+        <AnimatePresence exitBeforeEnter initial={true}>
+          {!isLoadingUser && renderContent()}
+        </AnimatePresence>
+      </div>
+    </Container>
   );
 };
