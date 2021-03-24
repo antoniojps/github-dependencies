@@ -1,0 +1,10 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sample {
+  display: block;
+  width: var(--size-xs2);
+  height: var(--size-xs2);
+}

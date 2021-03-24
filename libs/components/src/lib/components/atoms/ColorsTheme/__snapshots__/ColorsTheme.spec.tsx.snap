@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorsTheme renders with blues (readonly (readonly string[])[]) 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <span
+      class="sample"
+      style="background: rgb(239, 243, 255);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(198, 219, 239);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(158, 202, 225);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(107, 174, 214);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(49, 130, 189);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(8, 81, 156);"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ColorsTheme renders with nivo (string[]) 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <span
+      class="sample"
+      style="background: rgb(232, 193, 160);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(244, 117, 96);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(241, 225, 91);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(232, 168, 56);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(97, 205, 187);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(151, 227, 213);"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ColorsTheme renders with set3 (readonly string[]) 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <span
+      class="sample"
+      style="background: rgb(141, 211, 199);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(255, 255, 179);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(190, 186, 218);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(251, 128, 114);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(128, 177, 211);"
+    />
+    <span
+      class="sample"
+      style="background: rgb(253, 180, 98);"
+    />
+  </div>
+</DocumentFragment>
+`;
