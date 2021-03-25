@@ -3789,6 +3789,16 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
+"@tanem/react-nprogress@^3.0.59":
+  version "3.0.59"
+  resolved "https://registry.yarnpkg.com/@tanem/react-nprogress/-/react-nprogress-3.0.59.tgz#820b75aa1546eeeaa8c3bc4580e6ba47cca2dfc8"
+  integrity sha512-Y2uULtEftCF+HDXTZvRUW9xwb0lvQAJeVg9kucSsq9k/56CM3dwQGfENGNNSb7Urg21MV27io6ylet5hMcSarA==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    hoist-non-react-statics "^3.3.2"
+    prop-types "^15.7.2"
+    react-use "^17.2.1"
+
 "@testing-library/dom@^7.26.6":
   version "7.30.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.30.0.tgz#53697851f7708a1448cc30b74a2ea056dd709cd6"
@@ -10603,7 +10613,7 @@ hoist-non-react-statics@^2.3.1:
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
   integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
 
-hoist-non-react-statics@^3.3.0:
+hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
