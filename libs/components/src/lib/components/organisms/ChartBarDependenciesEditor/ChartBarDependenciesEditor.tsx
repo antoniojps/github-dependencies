@@ -11,11 +11,16 @@ import { ColorSchemeId, colorSchemes } from '@nivo/colors';
 import { useNProgress } from '@tanem/react-nprogress';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type ChartBarDependenciesEditorProps = { data: DependenciesData; isLoading: boolean };
+type ChartBarDependenciesEditorProps = {
+  data?: DependenciesData;
+  isLoading?: boolean;
+  isError?: boolean;
+};
 
 export const ChartBarDependenciesEditor = ({
   data = [],
   isLoading = false,
+  isError = false,
 }: ChartBarDependenciesEditorProps) => {
   const [
     { colorScheme, enableGrid, backgroundColor, gridColor },
@@ -63,50 +68,71 @@ export const ChartBarDependenciesEditor = ({
     </div>
   );
 
+  if (isError)
+    return (
+      <div className={styles.editor}>
+        <div className={styles.messageContainer}>
+          <Text h3>Something went wrong...</Text>
+          <Text type="secondary" span small>
+            Maybe we've reached Github's API limit or we couldn't find any repositories with package
+            dependencies. Please{' '}
+            <a
+              href="https://github.com/antoniojps/github-dependencies/issues/new/choose"
+              target="_blank"
+              rel="noreferrer"
+            >
+              open a github issue
+            </a>{' '}
+            if you think this should be fixed.
+          </Text>
+        </div>
+      </div>
+    );
+
   return (
     <div className={styles.editor}>
       {isLoading ? <Breather>{renderKnobs()}</Breather> : renderKnobs()}
-      <div style={{ backgroundColor }} className={styles.chart}>
-        <AnimatePresence exitBeforeEnter initial={false}>
-          {isLoading ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              key="chart-loading"
-              className={styles.loading}
-            >
-              <Breather>
-                <Text h3>Fetching your top dependencies</Text>
-                <Spacer y={0.2} />
-                <Progress value={progress * 100} className={styles.progress} type="success" />
-              </Breather>
-            </motion.div>
-          ) : (
-            <motion.div
-              style={{ display: 'flex', alignItems: 'baseline', flexDirection: 'column' }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              key="chart"
-            >
-              <ChartTitle
-                username="antoniojps"
-                chart="top 10 used dependencies"
-                color={readableColor(backgroundColor)}
-              />
-              <ChartBarDependencies
-                data={data}
-                colorScheme={colorScheme}
-                enableGrid={enableGrid}
-                gridColor={gridColor}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+      <AnimatePresence exitBeforeEnter initial={false}>
+        {isLoading ? (
+          <motion.div
+            style={{ backgroundColor: 'transparent' }}
+            className={styles.messageContainer}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            key="chart-loading"
+          >
+            <Breather>
+              <Text h3>Fetching your top dependencies</Text>
+              <Spacer y={0.2} />
+              <Progress value={progress * 100} className={styles.progress} type="success" />
+            </Breather>
+          </motion.div>
+        ) : (
+          <motion.div
+            style={{ backgroundColor }}
+            className={styles.chart}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            key="chart"
+          >
+            <ChartTitle
+              username="antoniojps"
+              chart="top 10 used dependencies"
+              color={readableColor(backgroundColor)}
+            />
+            <ChartBarDependencies
+              data={data}
+              colorScheme={colorScheme}
+              enableGrid={enableGrid}
+              gridColor={gridColor}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
