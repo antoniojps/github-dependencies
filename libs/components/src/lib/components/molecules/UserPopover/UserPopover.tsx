@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { User } from './../User/User';
-import { Popover } from './../Popover/Popover';
+import { Popover, usePopover } from './../Popover/Popover';
 import styles from './UserPopover.module.scss';
 import { signOut } from 'next-auth/client';
 import { noop } from 'lodash';
@@ -23,18 +23,20 @@ const Content = ({ handleSignOut = noop }: { handleSignOut?: typeof signOut }) =
 );
 
 export const UserPopover = ({ user, handleSignOut }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, toggle] = usePopover(false);
 
   return (
     <Popover
       content={<Content handleSignOut={handleSignOut} />}
       isOpen={isOpen}
-      onChangeOpen={setIsOpen}
+      toggle={toggle}
       positions={['bottom']}
       align={'end'}
       padding={5}
     >
-      <User className={styles.user} {...user} />
+      <div onClick={() => toggle}>
+        <User className={styles.user} {...user} />
+      </div>
     </Popover>
   );
 };

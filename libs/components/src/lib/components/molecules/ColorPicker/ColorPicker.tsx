@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ColorPicker.module.scss';
-import { Popover } from '../';
+import { Popover, usePopover } from '../';
 import { SketchPicker, RGBColor } from 'react-color';
 import { parseToRgb, rgbToColorString } from 'polished';
 import { noop } from 'lodash';
@@ -37,7 +37,7 @@ function parseToColorString(color: RGBColor) {
 }
 
 export const ColorPicker = ({ color, onChangeColor = noop, size = 'medium' }: ColorPickerProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, toggle] = usePopover(false);
   const [pickedRgb, setPickedRgb] = useState<RGBColor>(parseToRGBColor(color));
 
   useEffect(() => {
@@ -60,14 +60,14 @@ export const ColorPicker = ({ color, onChangeColor = noop, size = 'medium' }: Co
           />
         }
         isOpen={isOpen}
-        onChangeOpen={setIsOpen}
+        toggle={toggle}
         positions={['bottom']}
         align={'start'}
         padding={5}
       >
         <div
           className={classNames(styles.picker, { [styles.small]: size === 'small' })}
-          style={{ backgroundColor: color }}
+          style={{ backgroundColor: parseToColorString(pickedRgb) }}
           role="button"
         />
       </Popover>

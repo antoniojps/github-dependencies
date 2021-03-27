@@ -1,21 +1,15 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 
-import { Popover } from './Popover';
+import { Popover, usePopover } from './Popover';
 
 const Content = () => <div>content</div>;
 
 const PopoverDummy = ({ isOpenDefault }: { isOpenDefault?: boolean }) => {
-  const [isOpen, setIsOpen] = React.useState(isOpenDefault);
+  const [isOpen, toggle] = usePopover(false);
 
   return (
-    <Popover
-      content={Content}
-      isOpen={isOpen}
-      onChangeOpen={setIsOpen}
-      positions={['bottom']}
-      padding={5}
-    >
+    <Popover content={Content} isOpen={isOpen} toggle={toggle} positions={['bottom']} padding={5}>
       <p>click</p>
     </Popover>
   );
