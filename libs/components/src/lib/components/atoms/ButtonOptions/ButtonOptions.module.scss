@@ -1,0 +1,53 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+@mixin button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--yellow);
+  padding: 0 var(--space-2x);
+  height: 38px;
+  background: var(--background);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 120ms ease-in-out;
+  font-size: var(--size-xs);
+  line-height: var(--size-xs);
+  border: none;
+
+  &:hover {
+    background: var(--background-light);
+  }
+  &:focus {
+    outline: 0;
+    background: var(--background-light);
+  }
+  &:active {
+    background: var(--background-light);
+  }
+}
+
+.button {
+  @include button;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: inset 0px 0px 0px 1px var(--yellow);
+  &:focus {
+    box-shadow: inset 0px 0px 0px 2px var(--yellow);
+  }
+
+  &Options {
+    @include button;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: inset 0px 0px 0px 1px var(--yellow);
+    margin-left: -1px;
+
+    &:focus {
+      box-shadow: inset 0px 0px 0px 2px var(--yellow);
+    }
+  }
+}
