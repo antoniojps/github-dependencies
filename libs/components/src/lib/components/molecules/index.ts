@@ -5,3 +5,4 @@ export * from './UserPopover/UserPopover';
 export * from './ChartBarDependencies/ChartBarDependencies';
 export * from './ColorPicker/ColorPicker';
 export * from './ButtonOptionsPopover/ButtonOptionsPopover';
+export * from './ButtonDownload/ButtonDownload';

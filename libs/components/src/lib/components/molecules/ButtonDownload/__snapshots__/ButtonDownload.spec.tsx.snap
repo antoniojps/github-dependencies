@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonDownload renders 1`] = `
+<DocumentFragment>
+  <div
+    class="children"
+  >
+    <div
+      class="wrapper"
+    >
+      <button
+        class="button"
+      >
+        Download
+      </button>
+      <button
+        class="buttonOptions"
+      >
+        <svg
+          fill="none"
+          height="14"
+          shape-rendering="geometricPrecision"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          width="14"
+        >
+          <path
+            d="M6 9l6 6 6-6"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ButtonDownload renders ButtonDownloadOptions 1`] = `
+<DocumentFragment>
+  <div
+    class="options"
+  >
+    <div
+      class="name option"
+    >
+      <label>
+        name
+      </label>
+      <input
+        name="name"
+        placeholder="dependencies"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="buttonOptions option"
+    >
+      <label>
+        size
+      </label>
+      <div
+        class="buttons"
+      >
+        <button
+          class="buttonOptionsDisabled"
+        >
+          1x
+        </button>
+        <button
+          class=""
+        >
+          2x
+        </button>
+      </div>
+    </div>
+    <div
+      class="buttonOptions option"
+    >
+      <label>
+        format
+      </label>
+      <div
+        class="buttons"
+      >
+        <button
+          class="buttonOptionsDisabled"
+        >
+          svg
+        </button>
+        <button
+          class="buttonOptionsDisabled"
+        >
+          jpg
+        </button>
+        <button
+          class=""
+        >
+          png
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

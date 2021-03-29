@@ -63,3 +63,9 @@ export type ChartBarDependenciesProps = {
   gridColor?: string;
   enableGrid?: boolean;
 };
+
+export type DownloadOptions = {
+  name?: string;
+  size?: '2x' | '1x';
+  format?: 'svg' | 'png' | 'jpg';
+};

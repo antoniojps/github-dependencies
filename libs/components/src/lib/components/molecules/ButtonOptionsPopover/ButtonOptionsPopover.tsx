@@ -14,6 +14,7 @@ export const ButtonOptionsPopover = ({ children, onClick, content }: ButtonOptio
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
+    toggle(false);
     onClick(e);
   };
 
@@ -24,7 +25,7 @@ export const ButtonOptionsPopover = ({ children, onClick, content }: ButtonOptio
       toggle={toggle}
       positions={['bottom']}
       padding={5}
-      align="end"
+      align="start"
       containerStyle={{
         overflow: 'visible',
         backgroundColor: 'var(--background)',
