@@ -147,7 +147,38 @@ exports[`ChartBarDependenciesEditor renders 1`] = `
       <div
         class="knobsEnd"
       >
-        download
+        <div
+          class="children"
+        >
+          <div
+            class="wrapper"
+          >
+            <button
+              class="button"
+            >
+              Download
+            </button>
+            <button
+              class="buttonOptions"
+            >
+              <svg
+                fill="none"
+                height="14"
+                shape-rendering="geometricPrecision"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <path
+                  d="M6 9l6 6 6-6"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -399,7 +430,38 @@ exports[`ChartBarDependenciesEditor renders loading 1`] = `
           <div
             class="knobsEnd"
           >
-            download
+            <div
+              class="children"
+            >
+              <div
+                class="wrapper"
+              >
+                <button
+                  class="button"
+                >
+                  Download
+                </button>
+                <button
+                  class="buttonOptions"
+                >
+                  <svg
+                    fill="none"
+                    height="14"
+                    shape-rendering="geometricPrecision"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    width="14"
+                  >
+                    <path
+                      d="M6 9l6 6 6-6"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
