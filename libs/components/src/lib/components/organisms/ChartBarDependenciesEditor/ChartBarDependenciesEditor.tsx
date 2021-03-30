@@ -1,7 +1,7 @@
 import React from 'react';
-import { ChartBarDependencies, ColorPicker } from '../../molecules';
+import { ChartBarDependencies, ColorPicker, ButtonDownload } from '../../molecules';
 import { ChartTitle, ColorsTheme, Breather } from '../../atoms';
-import { DependenciesData } from '@github-graphs/types';
+import { DependenciesData, DownloadOptions } from '@github-graphs/types';
 import styles from './ChartBarDependenciesEditor.module.scss';
 import { readableColor } from 'polished';
 import { Select, Toggle, Text, Spacer, Progress } from '@geist-ui/react';
@@ -10,17 +10,20 @@ import { useChartDependenciesEditor } from './useChartDependenciesEditor';
 import { ColorSchemeId, colorSchemes } from '@nivo/colors';
 import { useNProgress } from '@tanem/react-nprogress';
 import { motion, AnimatePresence } from 'framer-motion';
+import { noop } from 'lodash';
 
 type ChartBarDependenciesEditorProps = {
   data?: DependenciesData;
   isLoading?: boolean;
   isError?: boolean;
+  handleDownload?: (options: DownloadOptions) => void;
 };
 
 export const ChartBarDependenciesEditor = ({
   data = [],
   isLoading = false,
   isError = false,
+  handleDownload = noop,
 }: ChartBarDependenciesEditorProps) => {
   const [
     { colorScheme, enableGrid, backgroundColor, gridColor },
@@ -32,38 +35,43 @@ export const ChartBarDependenciesEditor = ({
 
   const renderKnobs = () => (
     <div className={styles.knobs}>
-      <div className={styles.knob} title="background color">
-        <ColorPicker color={backgroundColor} onChangeColor={setBackgroundColor} />
+      <div className={styles.knobsStart}>
+        <div className={styles.knob} title="background color">
+          <ColorPicker color={backgroundColor} onChangeColor={setBackgroundColor} />
+        </div>
+        <Spacer x={0.5} inline />
+
+        <Select
+          placeholder="Theme"
+          value={themes.set3}
+          width="80px"
+          onChange={(value: ColorSchemeId) => setColorScheme(value)}
+        >
+          {Object.keys(themes).map((theme) => (
+            <Select.Option value={theme}>
+              <ColorsTheme colors={colorSchemes[theme]} />
+            </Select.Option>
+          ))}
+        </Select>
+        <Spacer x={0.5} inline />
+
+        <div className={styles.knob}>
+          <Text small span>
+            grid
+          </Text>
+          <Spacer x={0.2} inline />
+          <Toggle
+            checked={enableGrid}
+            initialChecked={enableGrid}
+            size="large"
+            onChange={(e) => setEnableGrid(e.target.checked)}
+          />
+          <Spacer x={0.2} inline />
+          <ColorPicker color={gridColor} onChangeColor={setGridColor} size="small" />
+        </div>
       </div>
-      <Spacer x={0.5} inline />
-
-      <Select
-        placeholder="Theme"
-        value={themes.set3}
-        width="80px"
-        onChange={(value: ColorSchemeId) => setColorScheme(value)}
-      >
-        {Object.keys(themes).map((theme) => (
-          <Select.Option value={theme}>
-            <ColorsTheme colors={colorSchemes[theme]} />
-          </Select.Option>
-        ))}
-      </Select>
-      <Spacer x={0.5} inline />
-
-      <div className={styles.knob}>
-        <Text small span>
-          grid
-        </Text>
-        <Spacer x={0.2} inline />
-        <Toggle
-          checked={enableGrid}
-          initialChecked={enableGrid}
-          size="large"
-          onChange={(e) => setEnableGrid(e.target.checked)}
-        />
-        <Spacer x={0.2} inline />
-        <ColorPicker color={gridColor} onChangeColor={setGridColor} size="small" />
+      <div className={styles.knobsEnd}>
+        <ButtonDownload onClick={handleDownload} />
       </div>
     </div>
   );

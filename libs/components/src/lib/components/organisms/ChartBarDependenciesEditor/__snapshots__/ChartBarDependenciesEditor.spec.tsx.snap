@@ -9,136 +9,145 @@ exports[`ChartBarDependenciesEditor renders 1`] = `
       class="knobs"
     >
       <div
-        class="knob"
-        title="background color"
+        class="knobsStart"
       >
-        <div>
-          <div
-            class="children"
-          >
-            <div
-              class="picker"
-              role="button"
-              style="background-color: rgb(0, 0, 0);"
-            />
-          </div>
-        </div>
-      </div>
-      <span
-        class="jsx-1605731424 "
-      />
-      <div
-        class="jsx-2679472055 select  "
-      >
-        <span
-          class="jsx-2679472055 value"
+        <div
+          class="knob"
+          title="background color"
         >
-          <div
-            class="jsx-2431676242 option   "
-          >
-            <span
-              class="jsx-4099787165"
+          <div>
+            <div
+              class="children"
             >
               <div
-                class="container"
-              >
-                <span
-                  class="sample"
-                  style="background: rgb(141, 211, 199);"
-                />
-                <span
-                  class="sample"
-                  style="background: rgb(255, 255, 179);"
-                />
-                <span
-                  class="sample"
-                  style="background: rgb(190, 186, 218);"
-                />
-                <span
-                  class="sample"
-                  style="background: rgb(251, 128, 114);"
-                />
-                <span
-                  class="sample"
-                  style="background: rgb(128, 177, 211);"
-                />
-                <span
-                  class="sample"
-                  style="background: rgb(253, 180, 98);"
-                />
-              </div>
-            </span>
+                class="picker"
+                role="button"
+                style="background-color: rgb(0, 0, 0);"
+              />
+            </div>
           </div>
-        </span>
-        <div
-          class="jsx-2679472055 icon"
-        >
-          <svg
-            class="jsx-3859518410"
-            fill="none"
-            height="1.25em"
-            shape-rendering="geometricPrecision"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1"
-            viewBox="0 0 24 24"
-            width="1.25em"
-          >
-            <path
-              class="jsx-3859518410"
-              d="M6 9l6 6 6-6"
-            />
-          </svg>
         </div>
-      </div>
-      <span
-        class="jsx-1605731424 "
-      />
-      <div
-        class="knob"
-      >
         <span
-          class="jsx-448591879  "
-        >
-          <small
-            class="jsx-1522418964  "
-          >
-            grid
-          </small>
-        </span>
-        <span
-          class="jsx-2532297534 "
+          class="jsx-1605731424 "
         />
-        <label
-          class="jsx-2561001755 "
+        <div
+          class="jsx-2679472055 select  "
         >
-          <input
-            checked=""
-            class="jsx-2561001755"
-            type="checkbox"
-          />
-          <div
-            class="jsx-2561001755 toggle checked "
-          >
-            <span
-              class="jsx-2561001755 inner"
-            />
-          </div>
-        </label>
-        <span
-          class="jsx-2532297534 "
-        />
-        <div>
-          <div
-            class="children"
+          <span
+            class="jsx-2679472055 value"
           >
             <div
-              class="picker small"
-              role="button"
-              style="background-color: rgba(255, 255, 255, 0.2);"
-            />
+              class="jsx-2431676242 option   "
+            >
+              <span
+                class="jsx-4099787165"
+              >
+                <div
+                  class="container"
+                >
+                  <span
+                    class="sample"
+                    style="background: rgb(141, 211, 199);"
+                  />
+                  <span
+                    class="sample"
+                    style="background: rgb(255, 255, 179);"
+                  />
+                  <span
+                    class="sample"
+                    style="background: rgb(190, 186, 218);"
+                  />
+                  <span
+                    class="sample"
+                    style="background: rgb(251, 128, 114);"
+                  />
+                  <span
+                    class="sample"
+                    style="background: rgb(128, 177, 211);"
+                  />
+                  <span
+                    class="sample"
+                    style="background: rgb(253, 180, 98);"
+                  />
+                </div>
+              </span>
+            </div>
+          </span>
+          <div
+            class="jsx-2679472055 icon"
+          >
+            <svg
+              class="jsx-3859518410"
+              fill="none"
+              height="1.25em"
+              shape-rendering="geometricPrecision"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              viewBox="0 0 24 24"
+              width="1.25em"
+            >
+              <path
+                class="jsx-3859518410"
+                d="M6 9l6 6 6-6"
+              />
+            </svg>
           </div>
         </div>
+        <span
+          class="jsx-1605731424 "
+        />
+        <div
+          class="knob"
+        >
+          <span
+            class="jsx-448591879  "
+          >
+            <small
+              class="jsx-1522418964  "
+            >
+              grid
+            </small>
+          </span>
+          <span
+            class="jsx-2532297534 "
+          />
+          <label
+            class="jsx-2561001755 "
+          >
+            <input
+              checked=""
+              class="jsx-2561001755"
+              type="checkbox"
+            />
+            <div
+              class="jsx-2561001755 toggle checked "
+            >
+              <span
+                class="jsx-2561001755 inner"
+              />
+            </div>
+          </label>
+          <span
+            class="jsx-2532297534 "
+          />
+          <div>
+            <div
+              class="children"
+            >
+              <div
+                class="picker small"
+                role="button"
+                style="background-color: rgba(255, 255, 255, 0.2);"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="knobsEnd"
+      >
+        download
       </div>
     </div>
     <div
@@ -252,136 +261,145 @@ exports[`ChartBarDependenciesEditor renders loading 1`] = `
           class="knobs"
         >
           <div
-            class="knob"
-            title="background color"
+            class="knobsStart"
           >
-            <div>
-              <div
-                class="children"
-              >
-                <div
-                  class="picker"
-                  role="button"
-                  style="background-color: rgb(0, 0, 0);"
-                />
-              </div>
-            </div>
-          </div>
-          <span
-            class="jsx-1605731424 "
-          />
-          <div
-            class="jsx-2679472055 select  "
-          >
-            <span
-              class="jsx-2679472055 value"
+            <div
+              class="knob"
+              title="background color"
             >
-              <div
-                class="jsx-2431676242 option   "
-              >
-                <span
-                  class="jsx-4099787165"
+              <div>
+                <div
+                  class="children"
                 >
                   <div
-                    class="container"
-                  >
-                    <span
-                      class="sample"
-                      style="background: rgb(141, 211, 199);"
-                    />
-                    <span
-                      class="sample"
-                      style="background: rgb(255, 255, 179);"
-                    />
-                    <span
-                      class="sample"
-                      style="background: rgb(190, 186, 218);"
-                    />
-                    <span
-                      class="sample"
-                      style="background: rgb(251, 128, 114);"
-                    />
-                    <span
-                      class="sample"
-                      style="background: rgb(128, 177, 211);"
-                    />
-                    <span
-                      class="sample"
-                      style="background: rgb(253, 180, 98);"
-                    />
-                  </div>
-                </span>
+                    class="picker"
+                    role="button"
+                    style="background-color: rgb(0, 0, 0);"
+                  />
+                </div>
               </div>
-            </span>
-            <div
-              class="jsx-2679472055 icon"
-            >
-              <svg
-                class="jsx-3859518410"
-                fill="none"
-                height="1.25em"
-                shape-rendering="geometricPrecision"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1"
-                viewBox="0 0 24 24"
-                width="1.25em"
-              >
-                <path
-                  class="jsx-3859518410"
-                  d="M6 9l6 6 6-6"
-                />
-              </svg>
             </div>
-          </div>
-          <span
-            class="jsx-1605731424 "
-          />
-          <div
-            class="knob"
-          >
             <span
-              class="jsx-448591879  "
-            >
-              <small
-                class="jsx-1522418964  "
-              >
-                grid
-              </small>
-            </span>
-            <span
-              class="jsx-2532297534 "
+              class="jsx-1605731424 "
             />
-            <label
-              class="jsx-2561001755 "
+            <div
+              class="jsx-2679472055 select  "
             >
-              <input
-                checked=""
-                class="jsx-2561001755"
-                type="checkbox"
-              />
-              <div
-                class="jsx-2561001755 toggle checked "
-              >
-                <span
-                  class="jsx-2561001755 inner"
-                />
-              </div>
-            </label>
-            <span
-              class="jsx-2532297534 "
-            />
-            <div>
-              <div
-                class="children"
+              <span
+                class="jsx-2679472055 value"
               >
                 <div
-                  class="picker small"
-                  role="button"
-                  style="background-color: rgba(255, 255, 255, 0.2);"
-                />
+                  class="jsx-2431676242 option   "
+                >
+                  <span
+                    class="jsx-4099787165"
+                  >
+                    <div
+                      class="container"
+                    >
+                      <span
+                        class="sample"
+                        style="background: rgb(141, 211, 199);"
+                      />
+                      <span
+                        class="sample"
+                        style="background: rgb(255, 255, 179);"
+                      />
+                      <span
+                        class="sample"
+                        style="background: rgb(190, 186, 218);"
+                      />
+                      <span
+                        class="sample"
+                        style="background: rgb(251, 128, 114);"
+                      />
+                      <span
+                        class="sample"
+                        style="background: rgb(128, 177, 211);"
+                      />
+                      <span
+                        class="sample"
+                        style="background: rgb(253, 180, 98);"
+                      />
+                    </div>
+                  </span>
+                </div>
+              </span>
+              <div
+                class="jsx-2679472055 icon"
+              >
+                <svg
+                  class="jsx-3859518410"
+                  fill="none"
+                  height="1.25em"
+                  shape-rendering="geometricPrecision"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  viewBox="0 0 24 24"
+                  width="1.25em"
+                >
+                  <path
+                    class="jsx-3859518410"
+                    d="M6 9l6 6 6-6"
+                  />
+                </svg>
               </div>
             </div>
+            <span
+              class="jsx-1605731424 "
+            />
+            <div
+              class="knob"
+            >
+              <span
+                class="jsx-448591879  "
+              >
+                <small
+                  class="jsx-1522418964  "
+                >
+                  grid
+                </small>
+              </span>
+              <span
+                class="jsx-2532297534 "
+              />
+              <label
+                class="jsx-2561001755 "
+              >
+                <input
+                  checked=""
+                  class="jsx-2561001755"
+                  type="checkbox"
+                />
+                <div
+                  class="jsx-2561001755 toggle checked "
+                >
+                  <span
+                    class="jsx-2561001755 inner"
+                  />
+                </div>
+              </label>
+              <span
+                class="jsx-2532297534 "
+              />
+              <div>
+                <div
+                  class="children"
+                >
+                  <div
+                    class="picker small"
+                    role="button"
+                    style="background-color: rgba(255, 255, 255, 0.2);"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="knobsEnd"
+          >
+            download
           </div>
         </div>
       </div>

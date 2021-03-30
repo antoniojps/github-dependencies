@@ -28,6 +28,27 @@
   display: flex;
   align-items: center;
   padding-bottom: var(--space-5x);
+  justify-content: space-between;
+
+  &Start {
+    display: flex;
+    align-items: center;
+  }
+
+  &End {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 769px) {
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+
+    &End {
+      margin-top: var(--gap-half);
+    }
+  }
 }
 
 .knob {
