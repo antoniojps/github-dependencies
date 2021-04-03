@@ -17,6 +17,7 @@
   font-size: var(--size-xs);
   line-height: var(--size-xs);
   border: none;
+  user-select: none;
 
   &:hover {
     background: var(--background-light);
