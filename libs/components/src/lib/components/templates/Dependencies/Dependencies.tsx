@@ -6,32 +6,24 @@ import { Text, Button, Spacer } from '@geist-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Dependencies.module.scss';
 import { signIn } from 'next-auth/client';
+import { DependenciesData } from '@github-graphs/types';
 
 type Props = {
   user?: User;
+  data: DependenciesData;
   isLoadingUser: boolean;
   isLoading: boolean;
+  isError?: boolean;
   handleSignIn: typeof signIn;
 };
-
-const data = [
-  { label: 'mongoose', value: 2 },
-  { label: 'query-string', value: 4 },
-  { label: 'prop-types', value: 8 },
-  { label: 'dotenv', value: 9 },
-  { label: 'husky', value: 9 },
-  { label: 'typescript', value: 10 },
-  { label: 'graphql', value: 10 },
-  { label: 'axios', value: 10 },
-  { label: 'eslint', value: 13 },
-  { label: 'react', value: 16 },
-];
 
 export const Dependencies = ({
   user,
   handleSignIn,
   isLoadingUser,
   isLoading,
+  isError = false,
+  data = [],
 }: Props): ReactElement => {
   const renderContent = () =>
     user ? (
@@ -42,7 +34,7 @@ export const Dependencies = ({
         transition={{ duration: 0.2 }}
         key="dependencies-graph"
       >
-        <ChartBarDependenciesEditor data={data} isLoading={isLoading} />
+        <ChartBarDependenciesEditor data={data} isLoading={isLoading} isError={isError} />
       </motion.div>
     ) : (
       <motion.div
