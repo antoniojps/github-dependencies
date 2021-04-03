@@ -26,9 +26,9 @@ export const ChartBarDependenciesEditor = ({
   handleDownload = noop,
 }: ChartBarDependenciesEditorProps) => {
   const [
-    { colorScheme, enableGrid, backgroundColor, gridColor },
+    { colorScheme, enableGrid, backgroundColor, gridColor, isProlongedLoading },
     { setColorScheme, setEnableGrid, setBackgroundColor, setGridColor },
-  ] = useChartDependenciesEditor();
+  ] = useChartDependenciesEditor({ isLoading });
   const { progress } = useNProgress({
     isAnimating: isLoading,
   });
@@ -97,13 +97,18 @@ export const ChartBarDependenciesEditor = ({
       </div>
     );
 
+  console.log({ isProlongedLoading });
+
   return (
     <div className={styles.editor}>
       {isLoading ? <Breather>{renderKnobs()}</Breather> : renderKnobs()}
       <AnimatePresence exitBeforeEnter initial={false}>
         {isLoading ? (
           <motion.div
-            style={{ backgroundColor: 'transparent' }}
+            style={{
+              backgroundColor: 'transparent',
+              visibility: isProlongedLoading ? 'visible' : 'hidden',
+            }}
             className={styles.messageContainer}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

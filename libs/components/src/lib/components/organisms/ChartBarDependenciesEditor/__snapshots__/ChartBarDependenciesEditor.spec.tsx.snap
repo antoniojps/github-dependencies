@@ -468,7 +468,7 @@ exports[`ChartBarDependenciesEditor renders loading 1`] = `
     </div>
     <div
       class="messageContainer"
-      style="background-color: transparent; opacity: 1;"
+      style="background-color: transparent; visibility: hidden; opacity: 1;"
     >
       <div
         class="breather"
