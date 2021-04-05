@@ -5,7 +5,7 @@
     "outDir": "../../dist/out-tsc",
     "declaration": true,
     "types": ["node"],
-    "lib": ["ES2020.Promise"]
+    "lib": ["ES2020.Promise", "dom"]
   },
   "exclude": ["**/*.spec.ts"],
   "include": ["**/*.ts"]
