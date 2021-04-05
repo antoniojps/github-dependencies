@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { ChartBarDependencies, ColorPicker, ButtonDownload } from '../../molecules';
 import { ChartTitle, ColorsTheme, Breather } from '../../atoms';
-import { DependenciesData, DownloadOptions } from '@github-graphs/types';
+import { DependenciesData, DownloadHandler } from '@github-graphs/types';
 import styles from './ChartBarDependenciesEditor.module.scss';
 import { readableColor } from 'polished';
 import { Select, Toggle, Text, Spacer, Progress } from '@geist-ui/react';
 import { themes } from './CharBarDependenciesEditor.data';
-import { useChartDependenciesEditor } from './useChartDependenciesEditor';
 import { ColorSchemeId, colorSchemes } from '@nivo/colors';
 import { useNProgress } from '@tanem/react-nprogress';
 import { motion, AnimatePresence } from 'framer-motion';
 import { noop } from 'lodash';
+import { useProlongedLoading } from '@github-graphs/services/hooks';
 
 type ChartBarDependenciesEditorProps = {
   data?: DependenciesData;
   isLoading?: boolean;
   isError?: boolean;
-  handleDownload?: (options: DownloadOptions) => void;
+  handleDownload?: DownloadHandler;
+  username: string;
+  title: string;
 };
 
 export const ChartBarDependenciesEditor = ({
@@ -24,11 +26,16 @@ export const ChartBarDependenciesEditor = ({
   isLoading = false,
   isError = false,
   handleDownload = noop,
+  username = '',
+  title = '',
 }: ChartBarDependenciesEditorProps) => {
-  const [
-    { colorScheme, enableGrid, backgroundColor, gridColor, isProlongedLoading },
-    { setColorScheme, setEnableGrid, setBackgroundColor, setGridColor },
-  ] = useChartDependenciesEditor({ isLoading });
+  const [colorScheme, setColorScheme] = useState<ColorSchemeId>('set3');
+  const [enableGrid, setEnableGrid] = useState(true);
+  const [backgroundColor, setBackgroundColor] = useState('rgb(0,0,0)');
+  const [gridColor, setGridColor] = useState('rgba(255,255,255,0.2)');
+  const isProlongedLoading = useProlongedLoading(isLoading);
+  const chartElement = useRef<HTMLDivElement | null>(null);
+
   const { progress } = useNProgress({
     isAnimating: isLoading,
   });
@@ -71,7 +78,11 @@ export const ChartBarDependenciesEditor = ({
         </div>
       </div>
       <div className={styles.knobsEnd}>
-        <ButtonDownload onClick={handleDownload} />
+        <ButtonDownload
+          onClick={(options) =>
+            handleDownload({ ...options, backgroundColor }, chartElement?.current)
+          }
+        />
       </div>
     </div>
   );
@@ -96,8 +107,6 @@ export const ChartBarDependenciesEditor = ({
         </div>
       </div>
     );
-
-  console.log({ isProlongedLoading });
 
   return (
     <div className={styles.editor}>
@@ -131,18 +140,21 @@ export const ChartBarDependenciesEditor = ({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             key="chart"
+            ref={chartElement}
           >
-            <ChartTitle
-              username="antoniojps"
-              chart="top 10 used dependencies"
-              color={readableColor(backgroundColor)}
-            />
-            <ChartBarDependencies
-              data={data}
-              colorScheme={colorScheme}
-              enableGrid={enableGrid}
-              gridColor={gridColor}
-            />
+            <figure>
+              <ChartTitle
+                username={username}
+                chart={title}
+                color={readableColor(backgroundColor)}
+              />
+              <ChartBarDependencies
+                data={data}
+                colorScheme={colorScheme}
+                enableGrid={enableGrid}
+                gridColor={gridColor}
+              />
+            </figure>
           </motion.div>
         )}
       </AnimatePresence>

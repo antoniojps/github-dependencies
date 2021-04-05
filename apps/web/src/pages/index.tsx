@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { Dependencies, Layout } from '@github-graphs/components';
 import { useSession, signOut, signIn } from 'next-auth/client';
 import { useQuery } from 'react-query';
 import { ParserResult } from '@github-graphs/types';
-import { filterTopRelatedDependencies } from '@github-graphs/parser-dependencies/filters';
+import { useDomToImageDownload } from '@github-graphs/services/hooks';
 
 export function Index() {
   const [session, loading] = useSession();
@@ -15,18 +15,13 @@ export function Index() {
       refetchOnWindowFocus: false,
     }
   );
+  const download = useDomToImageDownload();
 
   useEffect(() => {
     if (session) {
       refetch();
     }
   }, [session]);
-
-  const dataParsed = useMemo(() => {
-    if (!data) return [];
-    const npm = data.find((d) => d.packageManager === 'npm');
-    return filterTopRelatedDependencies(npm.data).slice(0, 10).reverse();
-  }, [data]);
 
   return (
     <Layout nav={{ user: session?.user, handleSignOut: signOut, handleSignIn: signIn }}>
@@ -36,7 +31,8 @@ export function Index() {
         handleSignIn={signIn}
         isLoading={isLoading}
         isError={Boolean(error)}
-        data={dataParsed}
+        data={data}
+        handleDownload={download}
       />
     </Layout>
   );
