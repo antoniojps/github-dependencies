@@ -6,3 +6,5 @@ export const getWidth = (originalWidth: number, originalHeight: number, currentH
   Math.round(currentHeight * (originalWidth / originalHeight));
 
 export * from './Github';
+export * from './Npm';
+export * from './Composer';
