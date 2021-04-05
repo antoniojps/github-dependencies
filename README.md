@@ -1,75 +1,54 @@
+# Github dependencies
 
+Github dependencies, is a simple web tool that you can use to find your most used dependencies in github repos.
 
-# GithubGraphs
+#### Package managers support
 
-This project was generated using [Nx](https://nx.dev).
+| Package manager | Language    | Files              | Supported                                                                  |
+| :-------------- | :---------- | :----------------- | :------------------------------------------------------------------------- |
+| npm             | Javascript  | `package.json`     | ✅                                                                         |
+| composer        | PHP         | `composer.json`    | ✅                                                                         |
+| Maven           | Java, Scala | `pom.xml`          | ╳ [Contribute](https://github.com/antoniojps/github-dependencies/issues/1) |
+| Python PIP      | Python      | `requirements.txt` | ╳ [Contribute](https://github.com/antoniojps/github-dependencies/issues/2) |
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+### What is this repository for?
+
+This is the main repository that holds all apps and libs necessary to build the website.
+
+### How do I get set up?
+
+This monorepo is setup using [Nx](https://nx.dev). Please read the documentation in order to understand proper workflow.
 
 🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
-## Adding capabilities to your workspace
+## How to run the apps.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+1. Clone this repository: `git clone git@github.com:antoniojps/github-dependencies.git`
+2. `cd github-dependencies`
+3. `yarn`
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+- Run the web client with `yarn start:web`.
+- Run the component storybook with `yarn start:components`.
 
-Below are our core plugins:
+## Available commands
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+| Command                    | Description                                                             |
+| :------------------------- | :---------------------------------------------------------------------- |
+| `yarn commit`              | Run pre-commit checks, lint-staged and follow the commit message format |
+| `yarn affected:lint`       | Run ESlint checker                                                      |
+| `yarn affected:type-check` | Run Flowtype checker                                                    |
+| `yarn affected:test`       | Run tests with Jest (not setup yet)                                     |
+| `yarn start:web`           | Run web app                                                             |
+| `yarn start:components`    | Run components storybook                                                |
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+### Contribution guidelines
 
-## Generate an application
+1. Pick up a task
+2. Once you're done, setup a pull request
+3. Code review
+4. Merge
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@github-graphs/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+The commit message should follow the [`<type>(<scope>): <subject>`](https://github.com/conventional-changelog/commitlint/blob/master/%40commitlint/config-conventional/) format, and pass the linking, tests and type-checking, this is automatically handed by the `yarn commit` command.
 
 ## Understand your workspace
 
@@ -78,17 +57,3 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
