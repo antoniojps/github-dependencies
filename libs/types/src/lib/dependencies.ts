@@ -69,3 +69,5 @@ export type DownloadOptions = {
   size?: '2x' | '1x';
   format?: 'svg' | 'png' | 'jpg';
 };
+
+export type DownloadHandler = (options: DownloadOptions) => void;

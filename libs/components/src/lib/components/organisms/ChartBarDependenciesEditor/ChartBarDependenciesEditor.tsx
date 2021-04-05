@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChartBarDependencies, ColorPicker, ButtonDownload } from '../../molecules';
 import { ChartTitle, ColorsTheme, Breather } from '../../atoms';
-import { DependenciesData, DownloadOptions } from '@github-graphs/types';
+import { DependenciesData, DownloadHandler } from '@github-graphs/types';
 import styles from './ChartBarDependenciesEditor.module.scss';
 import { readableColor } from 'polished';
 import { Select, Toggle, Text, Spacer, Progress } from '@geist-ui/react';
@@ -16,7 +16,7 @@ type ChartBarDependenciesEditorProps = {
   data?: DependenciesData;
   isLoading?: boolean;
   isError?: boolean;
-  handleDownload?: (options: DownloadOptions) => void;
+  handleDownload?: DownloadHandler;
 };
 
 export const ChartBarDependenciesEditor = ({
@@ -96,8 +96,6 @@ export const ChartBarDependenciesEditor = ({
         </div>
       </div>
     );
-
-  console.log({ isProlongedLoading });
 
   return (
     <div className={styles.editor}>
