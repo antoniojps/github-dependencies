@@ -1,4 +1,6 @@
-export const dependenciesDataMock = [
+import { ParserResult } from '@github-graphs/types';
+
+export const dependenciesDataMock: ParserResult = [
   {
     packageManager: 'npm',
     data: [

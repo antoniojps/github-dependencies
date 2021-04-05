@@ -3,6 +3,7 @@ import { Dependencies, Layout } from '@github-graphs/components';
 import { useSession, signOut, signIn } from 'next-auth/client';
 import { useQuery } from 'react-query';
 import { ParserResult } from '@github-graphs/types';
+import { useDomToImageDownload } from '@github-graphs/services/hooks';
 
 export function Index() {
   const [session, loading] = useSession();
@@ -14,6 +15,7 @@ export function Index() {
       refetchOnWindowFocus: false,
     }
   );
+  const download = useDomToImageDownload();
 
   useEffect(() => {
     if (session) {
@@ -30,6 +32,7 @@ export function Index() {
         isLoading={isLoading}
         isError={Boolean(error)}
         data={data}
+        handleDownload={download}
       />
     </Layout>
   );

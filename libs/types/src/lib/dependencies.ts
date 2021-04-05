@@ -67,7 +67,10 @@ export type ChartBarDependenciesProps = {
 export type DownloadOptions = {
   name?: string;
   size?: '2x' | '1x';
-  format?: 'svg' | 'png' | 'jpg';
+  format?: 'svg' | 'png' | 'jpeg';
 };
 
-export type DownloadHandler = (options: DownloadOptions) => void;
+export type DownloadHandler = (
+  options: DownloadOptions & { backgroundColor: string },
+  ref: HTMLElement | null
+) => void;

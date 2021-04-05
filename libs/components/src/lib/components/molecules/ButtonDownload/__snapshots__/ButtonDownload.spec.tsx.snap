@@ -93,7 +93,7 @@ exports[`ButtonDownload renders ButtonDownloadOptions 1`] = `
         <button
           class="buttonOptionsDisabled"
         >
-          jpg
+          jpeg
         </button>
         <button
           class=""

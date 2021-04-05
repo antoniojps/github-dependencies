@@ -16,7 +16,7 @@ export const defaultOptions: DownloadOptions = {
 };
 
 const SIZES: DownloadOptions['size'][] = ['1x', '2x'];
-const FORMATS: DownloadOptions['format'][] = ['svg', 'jpg', 'png'];
+const FORMATS: DownloadOptions['format'][] = ['svg', 'jpeg', 'png'];
 
 type Action =
   | { type: 'SET_NAME'; payload: string }
