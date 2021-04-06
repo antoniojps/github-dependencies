@@ -11,7 +11,7 @@ type SeoProps = {
 
 const defaultImg = SITE_METADATA.url + SITE_METADATA.image.src;
 
-const Seo = ({ title, description, titleShouldAppend = true }: SeoProps): ReactElement => {
+export const Seo = ({ title, description, titleShouldAppend = true }: SeoProps): ReactElement => {
   const computedTitle = useMemo(() => {
     if (title && titleShouldAppend) return `${title} - ${SITE_METADATA.title}`;
     if (title) return `${title}`;
@@ -64,5 +64,3 @@ const Seo = ({ title, description, titleShouldAppend = true }: SeoProps): ReactE
     </Head>
   );
 };
-
-export default Seo;
