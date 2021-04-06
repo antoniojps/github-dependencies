@@ -9,7 +9,11 @@ export function Index() {
   const [session, loading] = useSession();
   const { isLoading, error, data, refetch } = useQuery<ParserResult>(
     'dependencies',
-    () => fetch('/api/dependencies').then((res) => res.json()),
+    () =>
+      fetch('/api/dependencies').then((res) => {
+        if (res.ok) return res.json();
+        throw new Error(res.statusText);
+      }),
     {
       enabled: false,
       refetchOnWindowFocus: false,

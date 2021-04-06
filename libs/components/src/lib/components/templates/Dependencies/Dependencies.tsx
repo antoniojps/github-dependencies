@@ -52,10 +52,11 @@ export const Dependencies = ({
   }, [isFinished]);
 
   const parsed = React.useMemo(() => {
-    if (!data)
+    if (!data || data.length === 0)
       return {
         hasDependencies: false,
       };
+
     return {
       hasDependencies: data.find((deps) => deps.data.length > 0),
       data: data.map(({ packageManager, data }) => {
@@ -206,7 +207,9 @@ export const Dependencies = ({
 
   return (
     <Container className={styles.container} shrink center>
-      <Text h1>Github dependency usage graph</Text>
+      <Text h1>
+        {user ? `@${user?.name} most used dependencies` : 'Check your most used dependencies'}
+      </Text>
       <Text p>
         Understand what dependencies you use the most on your github projects
         <br />
