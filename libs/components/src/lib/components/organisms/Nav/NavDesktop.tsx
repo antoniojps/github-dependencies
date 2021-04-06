@@ -14,13 +14,21 @@ const NavDesktop = ({ links = [], user, handleSignOut }: NavProps): ReactElement
       <div className={styles.inner}>
         <div className={styles.start}>
           <a
-            href="https://antoniosantos.me"
+            href="https://github.com/antoniojps"
             target="_blank"
             rel="noreferrer"
             className={styles.logo}
           >
             <Logo />
           </a>
+          <iframe
+            src="https://ghbtns.com/github-btn.html?user=antoniojps&repo=github-dependencies&type=star&count=true&size=large&v=2"
+            frameBorder="0"
+            scrolling="0"
+            width="140"
+            height="30"
+            title="GitHub"
+          ></iframe>
           <AnimatePresence exitBeforeEnter initial={false}>
             {y < 100 && (
               <motion.div

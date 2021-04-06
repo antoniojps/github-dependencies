@@ -9,15 +9,7 @@ type LayoutProps = {
 export const Layout = ({ children, nav }: LayoutProps): ReactElement => {
   return (
     <>
-      <Nav
-        links={[
-          {
-            label: 'dependency usage graph',
-            to: '/',
-          },
-        ]}
-        {...nav}
-      />
+      <Nav {...nav} />
       <main>{children}</main>
     </>
   );
