@@ -23,6 +23,7 @@ export function Index() {
   const download = useDomToImageDownload();
 
   useEffect(() => {
+    console.log(process.env);
     if (session) {
       refetch();
     }
