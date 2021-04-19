@@ -7,7 +7,7 @@ import { NavProps } from './Nav';
 import { motion, AnimatePresence } from 'framer-motion';
 import { User } from './../../molecules';
 import { Button, Divider, Spacer } from '@geist-ui/react';
-import { Github, LogOut, LogIn } from '@geist-ui/react-icons';
+import { LogOut, LogIn } from '@geist-ui/react-icons';
 import { noop } from 'lodash';
 
 const NavMobile = ({
@@ -57,9 +57,16 @@ const NavMobile = ({
       {isOpen && (
         <div className={styles.navMobileContent}>
           <div className={styles.navMobileInner}>
-            <Button type="secondary" icon={<Github />} auto>
-              Github repository
-            </Button>
+            <div className={styles.githubCta}>
+              <iframe
+                src="https://ghbtns.com/github-btn.html?user=antoniojps&repo=github-dependencies&type=star&count=true&size=large&v=2"
+                frameBorder="0"
+                scrolling="0"
+                width="140"
+                height="30"
+                title="GitHub"
+              ></iframe>
+            </div>
             {links.map((item) => (
               <LinkActive
                 href={item.to}
