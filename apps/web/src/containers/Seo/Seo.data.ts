@@ -9,4 +9,5 @@ export const SITE_METADATA = {
     'github dependencies chart generator',
   ],
   image: { src: '/share.jpg', width: 1686, height: 882 },
+  'google-analytics': 'G-5BNZSLBZ9V',
 };
